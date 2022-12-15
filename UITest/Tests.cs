@@ -26,11 +26,17 @@ namespace UITest
         }
 
         [Test]
-        private void StepWork()
+        private void ButtonTest()
         {
-            System.Threading.Thread.Sleep(1000);
-            app.Tap(c => c.Marked("btnMyButton"));
-            app.Screenshot("LargeStep");
+            int btnCount = 3;
+            string btnName = "button";
+            for (int i = 1; i <= btnCount; i++) 
+            {
+                btnName = btnName+i.ToString();
+                app.Tap(c => c.Marked(btnName));
+                app.Screenshot(btnName);
+                System.Threading.Thread.Sleep(1000);
+            }
         }
     }
 }
